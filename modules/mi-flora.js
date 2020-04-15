@@ -18,26 +18,26 @@ module.exports = class MiFloraSensorModule {
 
     static handleAdvertisement ({debug, serviceData}) {
         const dataObj = serviceData.find(({uuid}) => uuid === MiFloraServiceUUID);
-        if(!dataObj) {
-            debug(`Got an advertisement, but there's no service data attached. Ignore it.`);
+        if (!dataObj) {
+            debug('Got an advertisement, but there\'s no service data attached. Ignore it.');
             return;
         }
 
         const data = dataObj.data;
-        if(data.length < 14) {
-            debug(`Got an advertisement, but service data is too short. Do you have the current firmware installed?`);
+        if (data.length < 14) {
+            debug(`Got an advertisement, but service data is too short (${data.length}). Do you have the current firmware installed?`);
             return;
         }
 
         const type = data.toString('hex', 12, 13);
-        if(!['04', '07', '08', '09'].includes(type)) {
-            debug(`Got an advertisement, but service data seems to be invalid (not a known type)`);
+        if (!['04', '07', '08', '09'].includes(type)) {
+            debug(`Got an advertisement, but service data seems to be invalid (not a known type: ${type})`);
             return;
         }
 
         const valueLength = parseInt(data.toString('hex', 14, 15));
-        if(data.length - valueLength !== 15) {
-            debug(`Got an advertisement, but service data seems to be invalid (not a known length)`);
+        if (data.length - valueLength !== 15) {
+            debug('Got an advertisement, but service data seems to be invalid (not a known length)');
             return;
         }
 
