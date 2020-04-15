@@ -40,7 +40,7 @@ module.exports = class MiFloraSensorModule {
                 battery: data.readUInt8(14)
             };
         }
-        else if(type === '06' && data.length === 16) {
+        else if(type === '04' && data.length === 16) {
             return {
                 temperature: data.readUInt16LE(14) / 10
             };
