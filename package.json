@@ -1,0 +1,29 @@
+{
+  "name": "@sebbo2002/ble2mqtt",
+  "version": "0.0.0",
+  "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
+  "main": "lib/ble2mqtt.js",
+  "bin": {
+    "ble2mqtt": "ble2mqtt.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebbo2002/ble2mqtt.git"
+  },
+  "author": "Sebastian Pekarek <mail@sebbo.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebbo2002/ble2mqtt/issues"
+  },
+  "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-8",
+    "mqtt": "^3.0.0"
+  }
+}

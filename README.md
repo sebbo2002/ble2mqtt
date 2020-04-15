@@ -1,0 +1,119 @@
+# ble2mqtt
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+
+## 🧐 What's this?
+
+ble2mqtt is a small script that **writes data from Bluetooth-LE devices to MQTT Topics**. Unlike many other
+implementations it **only listens to the broadcasts** of the devices, there is **no active polling**. This has the
+advantage that it is more stable, the sensors consumes less energy and mostly the range is higher. The disadvantage is
+that, depending on the device, individual values may be missing if they are not transmitted by broadcast. If these
+values are required, they would still have to be retrieved by polling. However, the most important data is usually
+transmitted via broadcasts, so that less important data (e.g. the battery status of the device) can also be requested
+less frequently.
+
+## 💾 Installation
+This module is based on noble. Therefore the same requirements are necessary here as well.
+
+- **for macOS**: install [Xcode](https://itunes.apple.com/ca/app/xcode/id497799835?mt=12)
+- **for Ubuntu/Debian/Raspbian**: run `sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev`
+- **for Fedora / Other-RPM based**: run `sudo yum install bluez bluez-libs bluez-libs-devel`
+- for **Windows and other systems** have a look at [the noble project](https://github.com/noble/noble/blob/master/README.md#prerequisites), they may already have some instructions for you
+
+
+After you have met the requirements for noble, you can install bte2mqtt:
+
+```bash
+npm install -g @sebbo2002/ble2mqtt
+```
+
+## 🔧 Configuration
+| Environment Variable | Default Value      | Description                                                                               |
+|:-------------------- |:------------------ |:----------------------------------------------------------------------------------------- |
+| `BROKER_URL`         | `mqtt://localhost` | MQTT-Broker URI                                                                           |
+| `TOPIC_PREFIX`       | `ble2mqtt`         | Prefix used to generate MQTT topics                                                       |
+| `CACHE_TTL`          | `5000`             | Cache TTL in ms, set to `0` to disable cache and publish every single message it gets     |
+| `RETAIN_FLAG`        | `0`                | Set the retain flag for MQTT messages? Default is no, set to `1` to enable.               |
+| `WHITELIST`          | -                  | Comma seperated list of device UUIDs or addresses. If set, all other devices are ignored. |
+
+## ⌨️ Usage
+
+If you have ble2mqtt installed, you can start the tool. The best thing to do is to set `--debug` first, so you can see
+what happens. When the script reports `Connections established` it will start. If not make sure that no other programs
+access your Bluetooth adapter. This can cause problems.
+
+![ble2mqtt screenshot](https://d.sebbo.net/ble2mqtt-91RDXKYyzGHryca265JdRtznbovUo7d9ibyVxNwPfy5b1FMkmX4wNhrehMMOpEdlE1GHPVXvkMTwPqmYKGoTSkeiopmVuy2G3Dz3.png)
+
+ble2mqtt now collects data from devices that send it out via Bluetooth LE. This data is parsed and forwarded in MQTT
+topics. Besides the general attributes there are also devices that reveal more about themselves. These are mostly
+sensors. If they are implemented in ble2mqtt, these values are forwarded as well. A list with all supported devices can
+be found below.
+
+#### General attributes
+Event if there's no implementation for your device you can use this module to get some basic information. You can still
+use other implementations to poll values in parallel. These general attributes are:
+- `name`
+- `address`
+- `uuid`
+- `lastSeen`
+- `rssi`
+
+#### Monitoring
+ble2mqtt supports several topics that can be used to monitor the process. They are updated every times the script starts.
+- `pid`
+- `version`
+
+#### Internal Cache
+To avoid flooding the MQTT-Broker with a huge amount of messages, there is a limit of one update per topic per 5
+seconds. The limit can be changed or deactivated with the environment variable `CACHE_TTL`.
+
+
+## 📡 Supported Devices
+
+Here's a list of devices which are supported. Other devices as listed here will most likely only support the basic
+attributes.
+
+<table>
+    <tr>
+        <td><img src="https://d.sebbo.net/HHCCJCY01-sltHKnA3SmaAoB2B1ZTv2NwT9YPcDjno7tVF0PbOzjyb6lCb0IWGEjQVD4xAAG5ooqVito3tktrqyoOEwK7BTVkqEnZFHYrRpgaQ.jpeg" width="100" alt="LYWSDCGQ"></td>
+        <td><b>Mi Flora Sensor</b><br />HHCCJCY01</td>
+    </tr>
+    <tr>
+        <td><b>Values:</b> (without basics)</td>
+        <td>temperature, moisture, illuminance, fertility</td>
+    </tr>
+    <tr>
+        <td><b>Update interval:</b></td>
+        <td>~ 1x / min</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td><img src="https://d.sebbo.net/LYWSDCGQ-jIYfxXMRFf0jm3XmPaONLG0RWofIr2JL9JGpshkGmGvMhzW3yMXE8gVI7Xut2Osz4oUkJnES2iB38IVr74HP1kSZRnqsu2TC7RxT.jpeg" width="100" alt="LYWSDCGQ"></td>
+        <td><b>Xiaomi Thermometer / Hygrometer</b><br />LYWSDCGQ</td>
+    </tr>
+    <tr>
+        <td><b>Values:</b> (without basics)</td>
+        <td>temperature, humidity, battery</td>
+    </tr>
+    <tr>
+        <td><b>Update interval:</b></td>
+        <td>~ 20x / min</td>
+    </tr>
+</table>
+
+
+## 🤷 Frequently asked questions
+### How do I determine which Bluetooth adapter the script should use?
+- `hcitool dev`
+- `NOBLE_HCI_DEVICE_ID=1` (hci1 used)
+
+### Something doesn't work. How can I get more information about what's going on inside the script?
+- `ble2mqtt --debug`
+
+## 📚 Credits
+- [noble](https://github.com/abandonware/noble#readme)
+- [mqtt.js](https://github.com/mqttjs/MQTT.js)
+
+## 👩‍⚖️ Copyright & License
+Copyright (c) Sebastian Pekarek under the [MIT license](LICENSE).
