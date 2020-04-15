@@ -26,6 +26,9 @@ After you have met the requirements for noble, you can install bte2mqtt:
 npm install -g @sebbo2002/ble2mqtt
 ```
 
+If you want to run ble2mqtt without root privileges, you have to give the node binary the right cap_net_raw under Linux,
+otherwise no Bluetooth advertisements can be received. How to do this is described [here](https://github.com/abandonware/noble#running-without-rootsudo-linux-specific) quite well.
+
 ## 🔧 Configuration
 | Environment Variable | Default Value      | Description                                                                               |
 |:-------------------- |:------------------ |:----------------------------------------------------------------------------------------- |
