@@ -31,8 +31,8 @@ module.exports = class MiFloraSensorModule {
 
         if(type === '0d' && data.length === 18) {
             return {
-                temperature: data.readUInt16LE(14) / 10,
-                humidity: data.readUInt16LE(16) / 10
+                temperature: (data.readUInt16LE(14) / 10).toFixed(1),
+                humidity: (data.readUInt16LE(16) / 10).toFixed(1)
             };
         }
         else if(type === '0d' && data.length === 16) {
@@ -42,12 +42,12 @@ module.exports = class MiFloraSensorModule {
         }
         else if(type === '04' && data.length === 16) {
             return {
-                temperature: data.readUInt16LE(14) / 10
+                temperature: (data.readUInt16LE(14) / 10).toFixed(1)
             };
         }
         else if(type === '06' && data.length === 16) {
             return {
-                humidity: data.readUInt16LE(14) / 10
+                humidity: (data.readUInt16LE(14) / 10).toFixed(1)
             };
         }
     }
