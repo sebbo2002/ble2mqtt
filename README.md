@@ -1,5 +1,6 @@
 # ble2mqtt
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sebbo2002/ble2mqtt/Release?style=flat-square)](https://github.com/sebbo2002/ble2mqtt/actions)
 
 ## 🧐 What's this?
 
