@@ -37,10 +37,14 @@ jobs:
         with:
           path: node_modules
           key: modules-${{ hashFiles('**/package-lock.json') }}
-      - name: install semantic-release
-        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/exec
+      - name: install semantic-release and sentry-cli
+        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/exec @sentry/cli
       - name: semantic-release
         run: npx semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: sebbo
+          SENTRY_PROJECT: ble2mqtt
+          SENTRY_URL: https://sentry.sebbo.net
