@@ -38,6 +38,7 @@ otherwise no Bluetooth advertisements can be received. How to do this is describ
 | `CACHE_TTL`          | `5000`             | Cache TTL in ms, set to `0` to disable cache and publish every single message it gets     |
 | `RETAIN_FLAG`        | `0`                | Set the retain flag for MQTT messages? Default is no, set to `1` to enable.               |
 | `WHITELIST`          | -                  | Comma seperated list of device UUIDs or addresses. If set, all other devices are ignored. |
+| `MONITORING_ID`      | -                  | Added to monitoring topics like `pid` or `uptime` to distinguish multiple agents          |
 
 ## ⌨️ Usage
 
