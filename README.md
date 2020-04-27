@@ -39,6 +39,7 @@ otherwise no Bluetooth advertisements can be received. How to do this is describ
 | `RETAIN_FLAG`        | `0`                | Set the retain flag for MQTT messages? Default is no, set to `1` to enable.               |
 | `WHITELIST`          | -                  | Comma seperated list of device UUIDs or addresses. If set, all other devices are ignored. |
 | `MONITORING_ID`      | -                  | Added to monitoring topics like `pid` or `uptime` to distinguish multiple agents          |
+| `WATCHDOG_SUICIDE`   | `0`                | Setting this to `1` allows the internal Watchdog to kill ble2mqtt if something goes wrong |
 
 ## ⌨️ Usage
 
