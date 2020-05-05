@@ -1,0 +1,50 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+      - name: npm install
+        run: |
+          if [ ! -d "./node_modules" ]; then
+              npm ci
+          fi
+      - run: npm run check
+  release:
+    runs-on: ubuntu-latest
+    needs: [checks]
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: modules-${{ hashFiles('**/package-lock.json') }}
+      - name: install semantic-release and sentry-cli
+        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/exec @sentry/cli
+      - name: semantic-release
+        run: npx semantic-release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: sebbo
+          SENTRY_PROJECT: ble2mqtt
+          SENTRY_URL: https://sentry.sebbo.net

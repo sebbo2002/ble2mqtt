@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+/* eslint-disable no-console */
+
 if(process.argv.includes('--debug')) {
     console.log(' _______   __        ________   ______   __       __   ______   ________  ________');
     console.log('/       \\ /  |      /        | /      \\ /  \\     /  | /      \\ /        |/        |');

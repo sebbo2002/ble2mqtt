@@ -1,0 +1,29 @@
+name: Test
+on:
+  push:
+    branches:
+      - feature/**
+      - hotfix/**
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+      - name: npm install
+        run: |
+          if [ ! -d "./node_modules" ]; then
+              npm ci
+          fi
+      - run: npm run check

@@ -1,5 +1,6 @@
 # ble2mqtt
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sebbo2002/ble2mqtt/Release?style=flat-square)](https://github.com/sebbo2002/ble2mqtt/actions)
 
 ## 🧐 What's this?
 
@@ -26,6 +27,9 @@ After you have met the requirements for noble, you can install bte2mqtt:
 npm install -g @sebbo2002/ble2mqtt
 ```
 
+If you want to run ble2mqtt without root privileges, you have to give the node binary the right cap_net_raw under Linux,
+otherwise no Bluetooth advertisements can be received. How to do this is described [here](https://github.com/abandonware/noble#running-without-rootsudo-linux-specific) quite well.
+
 ## 🔧 Configuration
 | Environment Variable | Default Value      | Description                                                                               |
 |:-------------------- |:------------------ |:----------------------------------------------------------------------------------------- |
@@ -34,6 +38,8 @@ npm install -g @sebbo2002/ble2mqtt
 | `CACHE_TTL`          | `5000`             | Cache TTL in ms, set to `0` to disable cache and publish every single message it gets     |
 | `RETAIN_FLAG`        | `0`                | Set the retain flag for MQTT messages? Default is no, set to `1` to enable.               |
 | `WHITELIST`          | -                  | Comma seperated list of device UUIDs or addresses. If set, all other devices are ignored. |
+| `MONITORING_ID`      | -                  | Added to monitoring topics like `pid` or `uptime` to distinguish multiple agents          |
+| `WATCHDOG_SUICIDE`   | `0`                | Setting this to `1` allows the internal Watchdog to kill ble2mqtt if something goes wrong |
 
 ## ⌨️ Usage
 
