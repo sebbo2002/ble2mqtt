@@ -67,6 +67,8 @@ use other implementations to poll values in parallel. These general attributes a
 ble2mqtt supports several topics that can be used to monitor the process. They are updated every times the script starts.
 - `pid`
 - `version`
+- `uptime`
+- `watchdogTimeout`
 
 #### Internal Cache
 To avoid flooding the MQTT-Broker with a huge amount of messages, there is a limit of one update per topic per 5
