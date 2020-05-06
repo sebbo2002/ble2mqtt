@@ -119,6 +119,17 @@ attributes.
 ### Something doesn't work. How can I get more information about what's going on inside the script?
 - `ble2mqtt --debug`
 
+### After some time ble2mqtt does not work anymore, what can be the reason?
+The problem is known, but unfortunately I do not know yet what the exact reason is. On some hosts I have the problem,
+on others not. A restart will reliably solve the problem. If ble2mqtt was started in such a way that it is automatically
+restarted when it terminates (e.g. via `forever`), `WATCHDOG_SUICIDE` can be used to allow the watchdog to terminate
+ble2mqtt when no more data is received. This works very reliably for me.
+
+### I have a large area to cover. How do I scale ble2mqtt with multiple agents?
+You can run the script on multiple hosts and run it in parallel. If you set the same topic, it makes no difference which
+instance received the beacons from the device. Set `MONITORING_ID` if you want to distinguish the monitoring topics.
+
+
 ## 📚 Credits
 - [noble](https://github.com/abandonware/noble#readme)
 - [mqtt.js](https://github.com/mqttjs/MQTT.js)
