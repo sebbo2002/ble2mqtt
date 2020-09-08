@@ -24,11 +24,11 @@
   "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
   "dependencies": {
     "@abandonware/noble": "^1.9.2-8",
-    "@sentry/node": "^5.15.5",
-    "mqtt": "^4.0.0"
+    "@sentry/node": "^5.22.3",
+    "mqtt": "^4.2.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
+    "eslint": "^7.8.1",
     "npm-check": "^5.9.2"
   }
 }
