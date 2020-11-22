@@ -2,45 +2,38 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - main
       - develop
 
 jobs:
-  checks:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-      - uses: actions/cache@v1
-        with:
-          path: node_modules
-          key: modules-${{ hashFiles('**/package-lock.json') }}
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-
-      - name: npm install
-        run: |
-          if [ ! -d "./node_modules" ]; then
-              npm ci
-          fi
-      - run: npm run check
   release:
     runs-on: ubuntu-latest
-    needs: [checks]
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
+        id: module-cache
         with:
           path: node_modules
           key: modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/cache@v2
+        id: global-cache
+        with:
+          path: ~/.npm
+          key: global-${{ hashFiles('**/package-lock.json') }}-v1
+      - run: npm ci
+        if: steps.module-cache.outputs.cache-hit != 'true'
+      - run: npm run lint
       - name: install semantic-release and sentry-cli
-        run: npm i -g semantic-release @semantic-release/changelog @semantic-release/exec @sentry/cli
+        if: steps.global-cache.outputs.cache-hit != 'true'
+        run: |
+          npm i -g semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/exec \
+            @semantic-release/git \
+            @sentry/cli
       - name: semantic-release
-        run: npx semantic-release
+        run: BRANCH=${GITHUB_REF#refs/heads/} npx semantic-release
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
