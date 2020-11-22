@@ -110,6 +110,51 @@ attributes.
     </tr>
 </table>
 
+<table>
+    <tr>
+        <td><img src="https://d.sebbo.net/Shared-Image-2020-11-22-18-55-51-w01pqMCZdUPOQreGg1k446bwArsD4Fvw8CmlTy6kSqewRC2V5htTkwO9Rj04Vx26v2UVDMAG179bZhCcajqjNt4E6f4VPplyCLPz.png" width="100" alt="LYWSDCGQ"></td>
+        <td><b>SwitchBot Bot</b><br />WoHand</td>
+    </tr>
+    <tr>
+        <td><b>Values:</b> (without basics)</td>
+        <td>switchAddOnUsed, state, battery</td>
+    </tr>
+    <tr>
+        <td><b>Update interval:</b></td>
+        <td><i>?</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td><img src="https://d.sebbo.net/Shared-Image-2020-11-22-18-56-39-pOkUJpmde1r4lRSsOl02QqX6RcswTBf4FY4uGaDwTjyTOa0CArzZJ1YVdQniHJMOE9GLBcL8fSQyFwjmf0KfsxZvWzmgSMP2vREv.png" width="100" alt="LYWSDCGQ"></td>
+        <td><b>SwitchBot Meter</b><br />WoSensorTH</td>
+    </tr>
+    <tr>
+        <td><b>Values:</b> (without basics)</td>
+        <td>temperature, humidity, battery</td>
+    </tr>
+    <tr>
+        <td><b>Update interval:</b></td>
+        <td><i>?</i></td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td><img src="https://d.sebbo.net/Shared-Image-2020-11-22-18-57-04-ypZ9SYzljJl8rGj8NVPuadVQLwdAsn6fLsliFbkN8BNdGtwRBQysTv64ywbTIg07UD2BwppJI9wwQqTx1nWyHL6IcLk0dK9SMQm8.png" width="100" alt="LYWSDCGQ"></td>
+        <td><b>SwitchBot Curtain</b><br />WoCurtain</td>
+    </tr>
+    <tr>
+        <td><b>Values:</b> (without basics)</td>
+        <td>calibrated, battery, position, lightLevel</td>
+    </tr>
+    <tr>
+        <td><b>Update interval:</b></td>
+        <td><i>?</i></td>
+    </tr>
+</table>
+
 
 ## 🤷 Frequently asked questions
 ### How do I determine which Bluetooth adapter the script should use?
