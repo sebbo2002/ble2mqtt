@@ -22,10 +22,10 @@
   "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
   "dependencies": {
     "@abandonware/noble": "^1.9.2-10",
-    "@sentry/node": "^5.26.0",
-    "mqtt": "^4.2.1"
+    "@sentry/node": "^5.27.4",
+    "mqtt": "^4.2.5"
   },
   "devDependencies": {
-    "eslint": "^7.11.0"
+    "eslint": "^7.14.0"
   }
 }
