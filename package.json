@@ -8,9 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "check": "npm run check:eslint && npm run check:npm",
-    "check:eslint": "eslint ./",
-    "check:npm": "npm-check --ignore npm-check"
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
@@ -28,7 +26,6 @@
     "mqtt": "^4.2.1"
   },
   "devDependencies": {
-    "eslint": "^7.11.0",
-    "npm-check": "^5.9.2"
+    "eslint": "^7.11.0"
   }
 }
