@@ -85,7 +85,7 @@ module.exports = class MiFloraSensorModule {
         const byte4 = data.readUInt8(4);
 
         return {
-            calibrated: byte1 & 0b01000000,
+            calibrated: !!(byte1 & 0b01000000),
             battery: byte2 & 0b01111111, // %
             position: byte3 & 0b01111111, // %
             lightLevel: (byte4 >> 4) & 0b00001111 // light sensor level (1-10)
