@@ -1,6 +1,6 @@
 {
   "name": "@sebbo2002/ble2mqtt",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
   "main": "lib/ble2mqtt.js",
   "bin": {

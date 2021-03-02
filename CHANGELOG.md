@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/sebbo2002/ble2mqtt/compare/v1.1.0...v1.1.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* Sentry messages are only tracked via console.error ([fe3d062](https://github.com/sebbo2002/ble2mqtt/commit/fe3d06200e79b8d3620829a77d6f7983cf31bb1f))
+
 # [1.1.0](https://github.com/sebbo2002/ble2mqtt/compare/v1.0.2...v1.1.0) (2020-12-20)
 
 
