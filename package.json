@@ -22,7 +22,7 @@
   "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
   "dependencies": {
     "@abandonware/noble": "^1.9.2-10",
-    "@sentry/node": "^6.3.0",
+    "@sentry/node": "^6.3.1",
     "mqtt": "^4.2.6"
   },
   "devDependencies": {
