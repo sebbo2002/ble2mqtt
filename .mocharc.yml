@@ -1,7 +1,4 @@
 require:
-  - ts-node/register
-  - source-map-support/register
+  - esm
 full-trace: true
 recursive: true
-extension:
-  - ts

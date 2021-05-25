@@ -3,7 +3,7 @@
 
 /* istanbul ignore file */
 
-import Magic from '../lib';
+import Magic from '../lib/index';
 
 const number = parseInt(process.argv[process.argv.length - 1], 10);
 console.log(Magic.double(number));

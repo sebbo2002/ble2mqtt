@@ -1,17 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
-import express, {Express} from 'express';
-import {Server} from 'http';
+import express from 'express';
 
 
 class AppServer {
     static run() {
         new AppServer();
     }
-
-    private app: Express;
-    private server: Server;
 
     constructor() {
         this.app = express();
