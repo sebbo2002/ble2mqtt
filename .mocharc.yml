@@ -1,0 +1,4 @@
+require:
+  - esm
+full-trace: true
+recursive: true

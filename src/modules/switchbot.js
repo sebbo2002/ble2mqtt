@@ -2,7 +2,7 @@
 
 const SwitchBotServiceUUID = '0d00';
 
-module.exports = class MiFloraSensorModule {
+export default class SwitchBotModule {
     static getModuleDescription () {
         return {
             name: 'switchbot',

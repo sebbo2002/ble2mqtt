@@ -1,1 +1,4 @@
-node_modules/
+/.nyc_output
+/dist
+/docs
+/node_modules
