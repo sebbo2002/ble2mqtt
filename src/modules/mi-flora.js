@@ -8,7 +8,7 @@ const MiFloraSensorTypes = {
     '09': 'fertility'
 };
 
-module.exports = class MiFloraSensorModule {
+export default class MiFloraSensorModule {
     static getModuleDescription () {
         return {
             name: 'mi-flora',

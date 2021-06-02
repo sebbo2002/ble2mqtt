@@ -2,7 +2,7 @@
 
 const SMART_TIMEOUT_SLOT_SIZE = 25;
 
-class SmartWatchdog {
+export default class SmartWatchdog {
     constructor () {
         this.reset();
     }
@@ -71,5 +71,3 @@ class SmartWatchdog {
         this.handler.push(fn);
     }
 }
-
-module.exports = SmartWatchdog;

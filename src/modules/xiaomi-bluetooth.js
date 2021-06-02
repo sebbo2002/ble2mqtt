@@ -2,7 +2,7 @@
 
 const ServiceUUID = 'fe95';
 
-module.exports = class MiFloraSensorModule {
+export default class XiaomiBluetoothModule {
     static getModuleDescription () {
         return {
             name: 'xiaomi-bluetooth',

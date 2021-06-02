@@ -1,40 +1,3 @@
-const plugins = [
-    ['@semantic-release/commit-analyzer', {
-        'preset': 'angular',
-        'releaseRules': [
-            {'type': 'docs', 'scope': 'README', 'release': 'patch'},
-            {'type': 'refactor', 'release': 'patch'},
-            {'type': 'build', 'scope': 'deps', 'release': 'patch'}
-        ],
-        'parserOpts': {
-            'noteKeywords': ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING']
-        }
-    }],
-    ['@semantic-release/release-notes-generator', {
-        'preset': 'angular',
-        'parserOpts': {
-            'noteKeywords': ['BREAKING CHANGE', 'BREAKING CHANGES', 'BREAKING']
-        },
-        'writerOpts': {
-            'commitsSort': ['subject', 'scope']
-        }
-    }],
-    '@semantic-release/changelog',
-    ['@semantic-release/exec', {
-        'prepareCmd': 'VERSION=${nextRelease.version} ./.github/workflows/release-prepare.sh',
-        'success': 'VERSION=${nextRelease.version} ./.github/workflows/release-success.sh'
-    }],
-    '@semantic-release/npm',
-    '@semantic-release/github'
-];
-
-if (process.env.BRANCH === 'main') {
-    plugins.push(['@semantic-release/git', {
-        'assets': ['CHANGELOG.md', 'package.json', 'package-lock.json'],
-        'message': 'chore(release): :bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
-    }]);
-}
-
 module.exports = {
     'branches': [
         'main',
@@ -44,5 +7,61 @@ module.exports = {
             'prerelease': true
         }
     ],
-    plugins
+    'plugins': [
+        ['@semantic-release/commit-analyzer', {
+            'releaseRules': [
+                {'type': 'build', 'scope': 'deps', 'release': 'patch'},
+                {'type': 'docs', 'release': 'patch'}
+            ]
+        }],
+        '@semantic-release/release-notes-generator',
+        ['@semantic-release/exec', {
+            'prepareCmd': 'VERSION=${nextRelease.version} ./.github/workflows/build.sh',
+            'success': 'VERSION=${nextRelease.version} ./.github/workflows/release-success.sh'
+        }],
+        '@semantic-release/changelog',
+        'semantic-release-license',
+        ['@amanda-mitchell/semantic-release-npm-multiple', {
+            'registries': {
+                'github': {},
+                'public': {}
+            }
+        }],
+        ['@semantic-release/github', {
+            'labels': false,
+            'assignees': process.env.GH_OWNER
+        }],
+        ['@semantic-release/git', {
+            'assets': ['CHANGELOG.md', 'LICENSE'],
+            'message': 'chore(release): :bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
+        }],
+        ['@eclass/semantic-release-docker', {
+            'baseImageName': process.env.DOCKER_REGISTRY_IMAGE + '@' + process.env.DOCKER_DIGEST,
+            'registries': [
+                {
+                    'url': 'docker.io',
+                    'imageName': process.env.DOCKER_REGISTRY_IMAGE,
+                    'user': 'DOCKER_REGISTRY_USERNAME',
+                    'password': 'DOCKER_REGISTRY_TOKEN'
+                }
+            ]
+        }],
+        ['@eclass/semantic-release-docker', {
+            'baseImageName': 'ghcr.io/' + process.env.GH_REPO + '@' + process.env.DOCKER_DIGEST,
+            'registries': [
+                {
+                    'url': 'ghcr.io',
+                    'imageName': 'ghcr.io/' + process.env.GH_REPO,
+                    'user': 'GITHUB_REGISTRY_USERNAME',
+                    'password': 'GITHUB_REGISTRY_TOKEN'
+                }
+            ]
+        }],
+        ['@qiwi/semantic-release-gh-pages-plugin', {
+            'msg': 'docs: Updated for <%= nextRelease.gitTag %>',
+            'src': './docs',
+            'dst': `./${process.env.BRANCH}`,
+            'pullTagsBranch': 'main'
+        }]
+    ]
 };

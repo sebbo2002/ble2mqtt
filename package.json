@@ -2,30 +2,60 @@
   "name": "@sebbo2002/ble2mqtt",
   "version": "0.0.0",
   "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
-  "main": "lib/ble2mqtt.js",
-  "bin": {
-    "ble2mqtt": "bin/ble2mqtt.js"
-  },
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./"
+    "build-all": "./.github/workflows/build.sh",
+    "build": "rollup -c && chmod +x ./dist/bin/*.js",
+    "start": "node ./dist/bin/ble2mqtt.js",
+    "develop": "rollup -c --watch",
+    "lint": "eslint",
+    "test": "mocha",
+    "coverage": "nyc mocha",
+    "license-check": "license-checker --production --summary"
+  },
+  "bin": {
+    "ble2mqtt": "./dist/bin/ble2mqtt.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebbo2002/ble2mqtt.git"
   },
-  "author": "Sebastian Pekarek <mail@sebbo.net>",
+  "author": "Sebastian Pekarek <xeenaegahjigeezongae@e.sebbo.net>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebbo2002/ble2mqtt/issues"
   },
   "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
+  "devDependencies": {
+    "@amanda-mitchell/semantic-release-npm-multiple": "^2.8.0",
+    "@eclass/semantic-release-docker": "^1.0.7",
+    "@qiwi/semantic-release-gh-pages-plugin": "^5.0.7",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.2.3",
+    "@semantic-release/release-notes-generator": "^9.0.2",
+    "@sentry/cli": "^1.65.0",
+    "eslint": "^7.27.0",
+    "esm": "^3.2.25",
+    "license-checker": "^25.0.1",
+    "mocha": "^8.4.0",
+    "mochawesome": "^6.2.2",
+    "nyc": "^15.1.0",
+    "rollup": "^2.49.0",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
+    "semantic-release-license": "^1.0.3"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "files": [
+    "/dist"
+  ],
   "dependencies": {
     "@abandonware/noble": "^1.9.2-10",
     "@sentry/node": "^6.5.0",
     "mqtt": "^4.2.6"
-  },
-  "devDependencies": {
-    "eslint": "^7.27.0"
   }
 }
