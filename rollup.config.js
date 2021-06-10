@@ -8,7 +8,7 @@ export default [
     {
         input: 'src/bin/cli.js',
         output: {
-            file: 'dist/bin/cli.js',
+            file: 'dist/bin/cli.cjs',
             format: 'cjs'
         },
         plugins
@@ -16,7 +16,7 @@ export default [
     {
         input: 'src/bin/start.js',
         output: {
-            file: 'dist/bin/start.js',
+            file: 'dist/bin/start.cjs',
             format: 'cjs'
         },
         external: [ 'express' ],
@@ -25,7 +25,7 @@ export default [
     {
         input: 'src/lib/index.js',
         output: {
-            file: 'dist/lib/index.js',
+            file: 'dist/lib/index.cjs',
             format: 'cjs',
             exports: 'auto'
         },
