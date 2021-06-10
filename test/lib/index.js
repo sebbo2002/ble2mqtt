@@ -1,6 +1,6 @@
 'use strict';
 
-import Magic from '../../src/lib';
+import Magic from '../../dist/lib';
 import assert from 'assert';
 
 describe('Example', function () {
