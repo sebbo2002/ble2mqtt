@@ -5,7 +5,8 @@
         "mocha": true
     },
     "extends": [
-        "eslint:recommended"
+        "eslint:recommended",
+        "plugin:jsonc/recommended-with-json"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -24,7 +25,8 @@
         "indent": [
             "error",
             4
-        ]
+        ],
+        "jsonc/sort-keys": "error"
     },
     "overrides": [
         {
@@ -35,6 +37,12 @@
                 "@typescript-eslint/ban-ts-ignore": "off",
                 "@typescript-eslint/ban-ts-comment": "off"
             }
+        },
+        {
+            "files": [
+                "*.json"
+            ],
+            "parser": "jsonc-eslint-parser"
         }
     ]
 }

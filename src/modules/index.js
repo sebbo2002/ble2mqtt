@@ -1,7 +1,7 @@
-import BasicsModule from './basics';
-import MiFloraSensorModule from './mi-flora';
-import SwitchBotModule from './switchbot';
-import XiaomiBluetoothModule from './xiaomi-bluetooth';
+import BasicsModule from './basics.js';
+import MiFloraSensorModule from './mi-flora.js';
+import SwitchBotModule from './switchbot.js';
+import XiaomiBluetoothModule from './xiaomi-bluetooth.js';
 
 const modules = [
     BasicsModule,

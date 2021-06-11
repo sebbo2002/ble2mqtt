@@ -12,7 +12,7 @@ jobs:
     if: contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main'
     strategy:
       matrix:
-        node: [10.x, 12.x, 14.x, 15.x]
+        node: [12.x, 14.x, 16.x]
     steps:
       - name: ☁️ Checkout Project
         uses: actions/checkout@v2
@@ -31,31 +31,6 @@ jobs:
         run: npm ci
       - name: ⏳ Run tests
         run: npm run test
-
-  coverage:
-    name: Code Coverage / Lint
-    runs-on: ubuntu-latest
-    if: contains(toJson(github.event.commits.*.message), '[skip ci]') == false || github.ref == 'refs/heads/main'
-    steps:
-      - name: ☁️ Checkout Project
-        uses: actions/checkout@v2
-      - name: 🔧 Setup node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-      - name: 🔧 Setup npm cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: 📦 Install dependencies
-        run: npm ci
-      - name: 🔍 Run linter
-        run: npm run lint
-      - name: ⚙️ Build project
-        run: npm run build-all
 
   license-checker:
     name: License Checker
@@ -83,7 +58,6 @@ jobs:
   docker-image:
     name: Build Docker Image
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
     steps:
       - name: ☁️ Checkout
         uses: actions/checkout@v2
@@ -100,6 +74,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: 🔐 Login to DockerHub
         uses: docker/login-action@v1
+        if: ${{ github.repository != 'sebbo2002/js-template' }}
         with:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -113,7 +88,7 @@ jobs:
           target: build-container
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
-          push: true
+          push: ${{ github.ref == 'refs/heads/develop' && github.repository != 'sebbo2002/js-template' }}
           tags: ghcr.io/${{ github.repository }}:build-container
           cache-from: ghcr.io/${{ github.repository }}:build-container
       - name: 🪄 Build and push (2/2)
@@ -123,7 +98,7 @@ jobs:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
-          push: true
+          push: ${{ github.repository != 'sebbo2002/js-template' }}
           tags: |
             ${{ github.repository }}:${{ github.sha }}
             ghcr.io/${{ github.repository }}:${{ github.sha }}
@@ -134,6 +109,15 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
           cache-from: ghcr.io/${{ github.repository }}:build-container
+      - name: 🏁 Boot-up Check
+        if: github.repository != 'sebbo2002/js-template'
+        run: |
+          docker run --rm --name "app" -d $IMAGE
+          sleep 5
+          docker run app echo "Ok."
+          docker stop app
+        env:
+          IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
     outputs:
       digest: ${{ steps.build.outputs.digest }}
 
@@ -145,7 +129,7 @@ jobs:
       - tests
       - license-checker
       - docker-image
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
+    if: ${{ github.repository != 'sebbo2002/js-template' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
     steps:
       - name: ☁️ Checkout Project
         uses: actions/checkout@v2

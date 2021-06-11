@@ -54,4 +54,4 @@ export default class MiFloraSensorModule {
             [MiFloraSensorTypes[type]]: (type === '04' ? (value * 0.1).toFixed(1) : value)
         };
     }
-};
+}

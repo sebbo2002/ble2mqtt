@@ -1,7 +1,7 @@
 'use strict';
 
-import SmartWatchdog from '../../src/lib/watchdog';
-import modules from '../../src/modules/index';
+import SmartWatchdog from '../../src/lib/watchdog.js';
+import modules from '../../src/modules/index.js';
 import assert from 'assert';
 
 describe('Watchdog', function () {

@@ -91,4 +91,4 @@ export default class SwitchBotModule {
             lightLevel: (byte4 >> 4) & 0b00001111 // light sensor level (1-10)
         };
     }
-};
+}

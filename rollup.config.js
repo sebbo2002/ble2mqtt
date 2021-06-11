@@ -10,7 +10,7 @@ export default [
     {
         input: 'src/bin/ble2mqtt.js',
         output: {
-            file: 'dist/bin/ble2mqtt.js',
+            file: 'dist/bin/ble2mqtt.cjs',
             format: 'cjs'
         },
         plugins: [shebang()],
@@ -19,7 +19,7 @@ export default [
     {
         input: 'src/lib/ble2mqtt.js',
         output: {
-            file: 'dist/lib/ble2mqtt.js',
+            file: 'dist/lib/ble2mqtt.cjs',
             format: 'cjs',
             exports: 'auto'
         },

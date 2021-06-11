@@ -16,4 +16,4 @@ export default class BasicsModule {
             rssi: peripheral.rssi
         };
     }
-};
+}
