@@ -29,7 +29,6 @@
     "license-checker": "^25.0.1",
     "mocha": "^8.4.0",
     "mochawesome": "^6.2.2",
-    "nyc": "^15.1.0",
     "rollup": "^2.49.0",
     "rollup-plugin-preserve-shebang": "^1.0.1",
     "semantic-release-license": "^1.0.3"

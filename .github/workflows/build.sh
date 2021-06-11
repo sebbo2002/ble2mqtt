@@ -5,6 +5,7 @@ echo "########################"
 echo "# build.sh"
 echo "# Version = ${VERSION}"
 echo "# Branch = ${BRANCH}"
+echo "# node version = $(node -v)"
 echo "# npm version = $(npm -v)"
 echo "########################"
 
