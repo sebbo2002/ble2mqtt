@@ -106,7 +106,7 @@ jobs:
           context: .
           target: build-container
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64
           push: ${{ github.ref == 'refs/heads/develop' && github.repository != 'sebbo2002/js-template' }}
           tags: ghcr.io/${{ github.repository }}:build-container
           cache-from: ghcr.io/${{ github.repository }}:build-container
@@ -116,7 +116,7 @@ jobs:
         with:
           context: .
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64
           push: ${{ github.repository != 'sebbo2002/js-template' }}
           tags: |
             ${{ github.repository }}:${{ github.sha }}

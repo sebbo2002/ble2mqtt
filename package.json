@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@abandonware/noble": "^1.9.2-10",
-    "@sentry/node": "^6.5.0",
+    "@sentry/node": "^6.6.0",
     "mqtt": "^4.2.6"
   },
   "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
@@ -21,15 +21,15 @@
     "@semantic-release/exec": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.2.3",
-    "@semantic-release/release-notes-generator": "^9.0.2",
+    "@semantic-release/release-notes-generator": "^9.0.3",
     "@sentry/cli": "^1.65.0",
     "eslint": "^7.27.0",
     "eslint-plugin-jsonc": "^1.2.1",
     "esm": "^3.2.25",
     "license-checker": "^25.0.1",
-    "mocha": "^8.4.0",
+    "mocha": "^9.0.0",
     "mochawesome": "^6.2.2",
-    "rollup": "^2.49.0",
+    "rollup": "^2.51.2",
     "rollup-plugin-preserve-shebang": "^1.0.1",
     "semantic-release-license": "^1.0.3"
   },
