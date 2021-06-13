@@ -1,0 +1,66 @@
+{
+  "author": "Sebastian Pekarek <xeenaegahjigeezongae@e.sebbo.net>",
+  "bin": {
+    "ble2mqtt": "./dist/bin/ble2mqtt.cjs"
+  },
+  "bugs": {
+    "url": "https://github.com/sebbo2002/ble2mqtt/issues"
+  },
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-10",
+    "@sentry/node": "^6.6.0",
+    "mqtt": "^4.2.6"
+  },
+  "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
+  "devDependencies": {
+    "@amanda-mitchell/semantic-release-npm-multiple": "^2.8.0",
+    "@eclass/semantic-release-docker": "^1.0.7",
+    "@qiwi/semantic-release-gh-pages-plugin": "^5.0.7",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/commit-analyzer": "^8.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.2.3",
+    "@semantic-release/release-notes-generator": "^9.0.3",
+    "@sentry/cli": "^1.65.0",
+    "eslint": "^7.27.0",
+    "eslint-plugin-jsonc": "^1.2.1",
+    "esm": "^3.2.25",
+    "license-checker": "^25.0.1",
+    "mocha": "^9.0.0",
+    "mochawesome": "^6.2.2",
+    "rollup": "^2.51.2",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
+    "semantic-release-license": "^1.0.3"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "name": "@sebbo2002/ble2mqtt",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebbo2002/ble2mqtt.git"
+  },
+  "scripts": {
+    "build": "rollup -c && chmod +x ./dist/bin/*.cjs ./src/bin/*.js",
+    "build-all": "./.github/workflows/build.sh",
+    "develop": "rollup -c --watch",
+    "license-check": "license-checker --production --summary",
+    "lint": "eslint . --ext .js,.json",
+    "start": "node ./dist/bin/ble2mqtt.cjs",
+    "test": "mocha"
+  },
+  "type": "module",
+  "version": "0.0.0"
+}

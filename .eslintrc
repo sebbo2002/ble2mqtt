@@ -1,0 +1,48 @@
+{
+    "env": {
+        "node": true,
+        "es6": true,
+        "mocha": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:jsonc/recommended-with-json"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module"
+    },
+    "rules": {
+        "semi": "error",
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "indent": [
+            "error",
+            4
+        ],
+        "jsonc/sort-keys": "error"
+    },
+    "overrides": [
+        {
+            "files": [
+                "test/**/*.ts"
+            ],
+            "rules": {
+                "@typescript-eslint/ban-ts-ignore": "off",
+                "@typescript-eslint/ban-ts-comment": "off"
+            }
+        },
+        {
+            "files": [
+                "*.json"
+            ],
+            "parser": "jsonc-eslint-parser"
+        }
+    ]
+}
