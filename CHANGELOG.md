@@ -1,3 +1,20 @@
+# [2.0.0-develop.1](https://github.com/sebbo2002/ble2mqtt/compare/v1.1.2-develop.9...v2.0.0-develop.1) (2021-06-13)
+
+
+### Bug Fixes
+
+* **Dockerfile:** Fix CMD option ([c16143a](https://github.com/sebbo2002/ble2mqtt/commit/c16143a635f3da84c01c2920813c5fd17b587ab2))
+
+
+### chore
+
+* Remove node.js 10 Support ([2b910c0](https://github.com/sebbo2002/ble2mqtt/commit/2b910c09bc8a41085fc4472159494d8738d5521e))
+
+
+### BREAKING CHANGES
+
+* Removed support for node.js v10
+
 # [1.0.0-develop.3](https://github.com/sebbo2002/js-template-test/compare/v1.0.0-develop.2...v1.0.0-develop.3) (2021-05-08)
 
 
