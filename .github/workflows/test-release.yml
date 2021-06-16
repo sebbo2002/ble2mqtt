@@ -77,6 +77,8 @@ jobs:
   docker-image:
     name: Build Docker Image
     runs-on: ubuntu-latest
+    env:
+      PUSH_TO_DOCKERHUB: ${{ (github.repository != 'sebbo2002/js-template') && (secrets.DOCKERHUB_TOKEN != null) }}
     steps:
       - name: ☁️ Checkout
         uses: actions/checkout@v2
@@ -93,7 +95,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: 🔐 Login to DockerHub
         uses: docker/login-action@v1
-        if: ${{ github.repository != 'sebbo2002/js-template' }}
+        if: ${{ env.PUSH_TO_DOCKERHUB == true }}
         with:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -118,9 +120,7 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           platforms: linux/amd64
           push: ${{ github.repository != 'sebbo2002/js-template' }}
-          tags: |
-            ${{ github.repository }}:${{ github.sha }}
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
           labels: |
             org.opencontainers.image.authors=${{ github.repository_owner }}
             org.opencontainers.image.created=${{ steps.buildVars.outputs.date }}
@@ -128,12 +128,23 @@ jobs:
             org.opencontainers.image.revision=${{ github.sha }}
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
           cache-from: ghcr.io/${{ github.repository }}:build-container
+      - name: 🔄 Push container to DockerHub
+        if: ${{ env.PUSH_TO_DOCKERHUB == true }}
+        run: |
+          docker pull $SOURCE
+          docker tag $SOURCE $TARGET
+          docker push $TARGET
+        env:
+          SOURCE: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          TARGET: ${{ github.repository }}:${{ github.sha }}
     outputs:
       digest: ${{ steps.build.outputs.digest }}
 
   release:
     name: Release
     runs-on: ubuntu-latest
+    env:
+      PUSH_TO_DOCKERHUB: ${{ (github.repository != 'sebbo2002/js-template') && (secrets.DOCKERHUB_TOKEN != null) }}
     needs:
       - tests
       - license-checker
@@ -169,10 +180,18 @@ jobs:
         with:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: ⬇️ Pull Containers
+      - name: ⬇️ Pull GitHub Containers
         run: |
-          docker pull "${{ github.repository }}@${{ needs.docker-image.outputs.digest }}"
-          docker pull "ghcr.io/${{ github.repository }}@${{ needs.docker-image.outputs.digest }}"
+          docker pull "$CONTAINER"
+        env:
+          DOCKER_HUB: ${{ github.repository }}@${{ needs.docker-image.outputs.digest }}
+          CONTAINER: ghcr.io/${{ github.repository }}@${{ needs.docker-image.outputs.digest }}
+      - name: ⬇️ Pull Docker Hub Containers
+        if: ${{ env.PUSH_TO_DOCKERHUB == true }}
+        run: |
+          docker pull "$CONTAINER"
+        env:
+          CONTAINER: ${{ github.repository }}@${{ needs.docker-image.outputs.digest }}
       - name: 🪄 Run semantic-release
         run: BRANCH=${GITHUB_REF#refs/heads/} npx semantic-release
         env:
