@@ -36,7 +36,8 @@ module.exports = {
             'message': 'chore(release): :bookmark: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}'
         }],
         ['@eclass/semantic-release-docker', {
-            'baseImageName': process.env.DOCKER_REGISTRY_IMAGE + '@' + process.env.DOCKER_DIGEST,
+            'baseImageName': process.env.DOCKER_REGISTRY_IMAGE,
+            'baseImageTag': process.env.DOCKER_DIGEST,
             'registries': [
                 {
                     'url': 'docker.io',
@@ -47,7 +48,8 @@ module.exports = {
             ]
         }],
         ['@eclass/semantic-release-docker', {
-            'baseImageName': 'ghcr.io/' + process.env.GH_REPO + '@' + process.env.DOCKER_DIGEST,
+            'baseImageName': 'ghcr.io/' + process.env.GH_REPO,
+            'baseImageTag': process.env.DOCKER_DIGEST,
             'registries': [
                 {
                     'url': 'ghcr.io',
