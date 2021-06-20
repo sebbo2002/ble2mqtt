@@ -37,11 +37,11 @@ module.exports = {
         }],
         ['@eclass/semantic-release-docker', {
             'baseImageName': process.env.DOCKER_REGISTRY_IMAGE,
-            'baseImageTag': process.env.DOCKER_DIGEST,
+            'baseImageTag': process.env.DOCKER_TAG,
             'registries': [
                 {
                     'url': 'docker.io',
-                    'imageName': process.env.DOCKER_REGISTRY_IMAGE,
+                    'imageName': 'docker.io/' + process.env.DOCKER_REGISTRY_IMAGE,
                     'user': 'DOCKER_REGISTRY_USERNAME',
                     'password': 'DOCKER_REGISTRY_TOKEN'
                 }
@@ -49,7 +49,7 @@ module.exports = {
         }],
         ['@eclass/semantic-release-docker', {
             'baseImageName': 'ghcr.io/' + process.env.GH_REPO,
-            'baseImageTag': process.env.DOCKER_DIGEST,
+            'baseImageTag': process.env.DOCKER_TAG,
             'registries': [
                 {
                     'url': 'ghcr.io',
