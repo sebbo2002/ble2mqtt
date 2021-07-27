@@ -4,7 +4,8 @@ RUN apk add --no-cache --update bluez python build-base
 WORKDIR "/app"
 
 COPY package*.json "/app/"
-RUN npm ci
+RUN npm i -g npm && \
+    npm ci
 
 COPY . "/app/"
 RUN npm run build && \
@@ -22,7 +23,8 @@ RUN apk add --no-cache --update dumb-init && \
     ln -s /app/dist/bin/ble2mqtt.cjs /usr/local/bin/ble2mqtt
 
 COPY --from=build-container /app/package*.json "/app/"
-RUN npm ci --only-production
+RUN npm i -g npm && \
+    npm ci --only-production
 
 COPY --from=build-container "/app" "/app"
 USER node

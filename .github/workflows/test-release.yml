@@ -27,8 +27,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
-        run: npm ci --verbose
+        run: npm ci
       - name: ⏳ Run tests
         run: npm run test
 
@@ -48,6 +50,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: 🕵️‍♀️ Run license checker
@@ -69,6 +73,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: 🔍 Run linter
@@ -171,6 +177,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: 📂 Create docs folder
