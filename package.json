@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@abandonware/noble": "^1.9.2-10",
-    "@sentry/node": "^6.9.0",
+    "@sentry/node": "^6.11.0",
     "mqtt": "^4.2.8"
   },
   "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
