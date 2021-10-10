@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 'use strict';
 
+import BluetoothLE2MQTT from '../lib/ble2mqtt';
+
 /* eslint-disable no-console */
 
 if(process.argv.includes('--debug')) {
@@ -16,7 +18,6 @@ if(process.argv.includes('--debug')) {
     console.log('                                                          $$$/\n');
 }
 
-const BluetoothLE2MQTT = require('../lib/ble2mqtt');
 const bluetoothLE2MQTT = new BluetoothLE2MQTT({
     debug: process.argv.includes('--debug'),
     brokerUrl: process.env.BROKER_URL,

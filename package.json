@@ -1,31 +1,64 @@
 {
-  "name": "@sebbo2002/ble2mqtt",
-  "version": "1.1.1",
-  "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
-  "main": "lib/ble2mqtt.js",
+  "author": "Sebastian Pekarek <xeenaegahjigeezongae@e.sebbo.net>",
   "bin": {
-    "ble2mqtt": "bin/ble2mqtt.js"
+    "ble2mqtt": "./dist/bin/ble2mqtt.cjs"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint ./"
+  "bugs": {
+    "url": "https://github.com/sebbo2002/ble2mqtt/issues"
   },
+  "dependencies": {
+    "@abandonware/noble": "^1.9.2-14",
+    "@sentry/node": "^6.13.3",
+    "mqtt": "^4.2.8"
+  },
+  "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
+  "devDependencies": {
+    "@amanda-mitchell/semantic-release-npm-multiple": "^2.15.0",
+    "@qiwi/semantic-release-gh-pages-plugin": "^5.1.1",
+    "@sebbo2002/semantic-release-docker": "^1.0.0-develop.1",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/exec": "^6.0.1",
+    "@semantic-release/git": "^10.0.0",
+    "@semantic-release/release-notes-generator": "^10.0.2",
+    "@sentry/cli": "^1.69.1",
+    "eslint": "^8.0.0",
+    "eslint-plugin-jsonc": "^1.7.0",
+    "esm": "^3.2.25",
+    "license-checker": "^25.0.1",
+    "mocha": "^9.1.2",
+    "mochawesome": "^6.3.1",
+    "rollup": "^2.58.0",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
+    "semantic-release-license": "^1.0.3"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "exports": {
+    "import": "./src/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "files": [
+    "/dist",
+    "/src"
+  ],
+  "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "name": "@sebbo2002/ble2mqtt",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sebbo2002/ble2mqtt.git"
   },
-  "author": "Sebastian Pekarek <mail@sebbo.net>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sebbo2002/ble2mqtt/issues"
+  "scripts": {
+    "build": "rollup -c && chmod +x ./dist/bin/*.cjs ./src/bin/*.js",
+    "build-all": "./.github/workflows/build.sh",
+    "develop": "rollup -c --watch",
+    "license-check": "license-checker --production --summary",
+    "lint": "eslint . --ext .js,.json",
+    "start": "node ./dist/bin/ble2mqtt.cjs",
+    "test": "mocha"
   },
-  "homepage": "https://github.com/sebbo2002/ble2mqtt#readme",
-  "dependencies": {
-    "@abandonware/noble": "^1.9.2-10",
-    "@sentry/node": "^6.2.0",
-    "mqtt": "^4.2.6"
-  },
-  "devDependencies": {
-    "eslint": "^7.21.0"
-  }
+  "type": "module",
+  "version": "0.0.0"
 }

@@ -1,10 +1,10 @@
 'use strict';
 
-const mqtt = require('mqtt');
-const noble = require('@abandonware/noble');
-const Sentry = require('@sentry/node');
-const modules = require('../modules');
-const SmartWatchdog = require('./watchdog');
+import mqtt from 'mqtt';
+import noble from '@abandonware/noble';
+import * as Sentry from '@sentry/node';
+import modules from '../modules/index';
+import SmartWatchdog from './watchdog';
 
 let version;
 try {
@@ -21,7 +21,7 @@ if (version && version !== '0.0.0') {
     });
 }
 
-class BluetoothLE2MQTT {
+export default class BluetoothLE2MQTT {
 
     /**
      * @param {object} [options]
@@ -347,5 +347,3 @@ class BluetoothLE2MQTT {
         ]);
     }
 }
-
-module.exports = BluetoothLE2MQTT;

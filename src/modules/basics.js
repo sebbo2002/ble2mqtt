@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class BasicsModule {
+export default class BasicsModule {
     static getModuleDescription () {
         return {
             name: 'basics'
@@ -16,4 +16,4 @@ module.exports = class BasicsModule {
             rssi: peripheral.rssi
         };
     }
-};
+}

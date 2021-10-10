@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-sentry-cli releases finalize ${VERSION}
+if [ "$VERSION" != "" ]; then
+    npx sentry-cli releases finalize ${VERSION}
+fi;
