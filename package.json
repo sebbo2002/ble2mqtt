@@ -7,7 +7,7 @@
     "url": "https://github.com/sebbo2002/ble2mqtt/issues"
   },
   "dependencies": {
-    "@abandonware/noble": "^1.9.2-10",
+    "@abandonware/noble": "^1.9.2-14",
     "@sentry/node": "^6.13.2",
     "mqtt": "^4.2.8"
   },
