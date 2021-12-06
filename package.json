@@ -1,5 +1,5 @@
 {
-  "author": "Sebastian Pekarek <xeenaegahjigeezongae@e.sebbo.net>",
+  "author": "Sebastian Pekarek <mail@sebbo.net>",
   "bin": {
     "ble2mqtt": "./dist/bin/ble2mqtt.cjs"
   },
