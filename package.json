@@ -1,10 +1,10 @@
 {
-  "author": "Sebastian Pekarek <oojeesheibashumaofie@e.sebbo.net>",
+  "author": "Sebastian Pekarek <mail@sebbo.net>",
   "bin": {
     "test-cli": "./dist/bin/cli.js"
   },
   "bugs": {
-    "url": "https://github.com/sebbo2002/template/issues"
+    "url": "https://github.com/sebbo2002/js-template/issues"
   },
   "dependencies": {
     "express": "^4.17.1"
@@ -39,13 +39,13 @@
     "/dist",
     "/src"
   ],
-  "homepage": "https://github.com/sebbo2002/template#readme",
+  "homepage": "https://github.com/sebbo2002/js-template#readme",
   "license": "MIT",
   "main": "./dist/index.cjs",
   "name": "@sebbo2002/js-template-test",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebbo2002/js-template-test.git"
+    "url": "git+https://github.com/sebbo2002/js-template.git"
   },
   "scripts": {
     "build": "rollup -c && chmod +x ./dist/bin/*.cjs ./src/bin/*.js",
