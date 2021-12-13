@@ -1,4 +1,4 @@
-FROM node:lts-alpine@sha256:3da1c08529fef7007d57d2133a0feb0fa8c60fdd4ad6691978f9dfcb0365b430 as build-container
+FROM node:lts-alpine@sha256:a9b9cb880fa429b0bea899cd3b1bc081ab7277cc97e6d2dcd84bd9753b2027e1 as build-container
 RUN apk add --no-cache --update bluez python3 build-base
 
 WORKDIR "/app"
@@ -12,7 +12,7 @@ RUN npm run build && \
     rm -rf ./.github ./src ./test ./node_modules
 
 
-FROM node:lts-alpine@sha256:3da1c08529fef7007d57d2133a0feb0fa8c60fdd4ad6691978f9dfcb0365b430
+FROM node:lts-alpine@sha256:a9b9cb880fa429b0bea899cd3b1bc081ab7277cc97e6d2dcd84bd9753b2027e1
 RUN apk add --no-cache --update bluez python3 build-base
 
 ARG NODE_ENV=production
