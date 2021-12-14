@@ -21,7 +21,7 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@sentry/cli": "^1.71.0",
-    "eslint": "^8.2.0",
+    "eslint": "^8.4.1",
     "eslint-plugin-jsonc": "^2.0.0",
     "esm": "^3.2.25",
     "license-checker": "^25.0.1",
