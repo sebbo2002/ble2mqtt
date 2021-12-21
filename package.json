@@ -27,7 +27,7 @@
     "license-checker": "^25.0.1",
     "mocha": "^9.1.3",
     "mochawesome": "^7.0.1",
-    "rollup": "^2.60.1",
+    "rollup": "^2.61.1",
     "rollup-plugin-preserve-shebang": "^1.0.1",
     "semantic-release-license": "^1.0.3"
   },
