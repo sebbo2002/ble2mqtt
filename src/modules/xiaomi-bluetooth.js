@@ -50,5 +50,8 @@ export default class XiaomiBluetoothModule {
                 humidity: (data.readUInt16LE(14) / 10).toFixed(1)
             };
         }
+        else {
+            debug(`Got unknown package of type ${type} with a payload length of ${data.length}`);
+        }
     }
 }
