@@ -1,3 +1,10 @@
+## [2.0.2-develop.1](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.1...v2.0.2-develop.1) (2022-01-04)
+
+
+### Bug Fixes
+
+* **Xiaomi Bluetooth:** Fix battery reporting ([6c9dd79](https://github.com/sebbo2002/ble2mqtt/commit/6c9dd792ed8a5136ec9a329a84e46b0e8bf0bf81)), closes [#106](https://github.com/sebbo2002/ble2mqtt/issues/106)
+
 ## [2.0.1](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.0...v2.0.1) (2021-12-13)
 
 
