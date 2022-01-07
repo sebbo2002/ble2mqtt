@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "@abandonware/noble": "^1.9.2-14",
-    "@sentry/node": "^6.15.0",
-    "mqtt": "^4.2.8"
+    "@sentry/node": "^6.16.1",
+    "mqtt": "^4.3.2"
   },
   "description": "ble2mqtt is a small script that writes data from Bluetooth LE devices to MQTT topics",
   "devDependencies": {
@@ -17,17 +17,17 @@
     "@qiwi/semantic-release-gh-pages-plugin": "^5.2.0",
     "@sebbo2002/semantic-release-docker": "^1.0.0-develop.1",
     "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/exec": "^6.0.2",
+    "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
     "@sentry/cli": "^1.71.0",
-    "eslint": "^8.2.0",
+    "eslint": "^8.4.1",
     "eslint-plugin-jsonc": "^2.0.0",
     "esm": "^3.2.25",
     "license-checker": "^25.0.1",
     "mocha": "^9.1.3",
     "mochawesome": "^7.0.1",
-    "rollup": "^2.60.1",
+    "rollup": "^2.61.1",
     "rollup-plugin-preserve-shebang": "^1.0.1",
     "semantic-release-license": "^1.0.3"
   },

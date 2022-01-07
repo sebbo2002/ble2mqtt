@@ -35,7 +35,7 @@ export default class XiaomiBluetoothModule {
                 humidity: (data.readUInt16LE(16) / 10).toFixed(1)
             };
         }
-        else if (type === '0d' && data.length === 16) {
+        else if (type === '0a' && data.length >= 15) {
             return {
                 battery: data.readUInt8(14)
             };
@@ -49,6 +49,9 @@ export default class XiaomiBluetoothModule {
             return {
                 humidity: (data.readUInt16LE(14) / 10).toFixed(1)
             };
+        }
+        else {
+            debug(`Got unknown package of type ${type} with a payload length of ${data.length}`);
         }
     }
 }
