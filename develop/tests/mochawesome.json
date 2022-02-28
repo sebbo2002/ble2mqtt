@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-01-04T18:51:51.873Z",
-    "end": "2022-01-04T18:51:51.878Z",
-    "duration": 5,
+    "start": "2022-02-28T18:42:55.644Z",
+    "end": "2022-02-28T18:42:55.650Z",
+    "duration": 6,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "412f155a-79e8-4e42-ab96-3afa14b6ca3d",
+      "uuid": "e7075754-c752-4004-b3a7-34e8ae5ea978",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b6e7f4da-51ab-49b6-9e42-3e1507c93026",
+          "uuid": "920bb5ae-0b11-43fb-9791-d0ff6d10b776",
           "title": "Watchdog",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -47,15 +47,15 @@
               "context": null,
               "code": "assert.ok(SmartWatchdog);",
               "err": {},
-              "uuid": "2a039a94-fba8-4d11-8827-56f43c0aa46d",
-              "parentUUID": "b6e7f4da-51ab-49b6-9e42-3e1507c93026",
+              "uuid": "f83435c9-cc52-4db5-af95-7e61eb46ef66",
+              "parentUUID": "920bb5ae-0b11-43fb-9791-d0ff6d10b776",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "2a039a94-fba8-4d11-8827-56f43c0aa46d"
+            "f83435c9-cc52-4db5-af95-7e61eb46ef66"
           ],
           "failures": [],
           "pending": [],
@@ -66,7 +66,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "e4dd6817-7295-4da9-8beb-f4a063c20617",
+          "uuid": "10c64f79-1f1b-4629-9bad-8b0fd10326a0",
           "title": "Modules",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -86,15 +86,15 @@
               "context": null,
               "code": "assert.ok(modules.length > 0);",
               "err": {},
-              "uuid": "fbc7e7c2-fdb0-4af4-afca-7b04e9693e90",
-              "parentUUID": "e4dd6817-7295-4da9-8beb-f4a063c20617",
+              "uuid": "f7477289-0477-4fec-b62c-82bf2258d956",
+              "parentUUID": "10c64f79-1f1b-4629-9bad-8b0fd10326a0",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "fbc7e7c2-fdb0-4af4-afca-7b04e9693e90"
+            "f7477289-0477-4fec-b62c-82bf2258d956"
           ],
           "failures": [],
           "pending": [],
@@ -117,7 +117,7 @@
   ],
   "meta": {
     "mocha": {
-      "version": "9.1.3"
+      "version": "9.2.0"
     },
     "mochawesome": {
       "options": {
