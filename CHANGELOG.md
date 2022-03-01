@@ -1,3 +1,11 @@
+## [2.0.3](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.2...v2.0.3) (2022-03-01)
+
+
+### Bug Fixes
+
+* Handle null/undefined return type properly ([59b415f](https://github.com/sebbo2002/ble2mqtt/commit/59b415f7134fd574831f8906cd8b6c53751b90ec))
+* **SwitchBot:** Handle longer curtain advertisements as well ([32c9174](https://github.com/sebbo2002/ble2mqtt/commit/32c91748896a9c5767c451bcf387e91e1972dd4a))
+
 ## [2.0.3-develop.1](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.2...v2.0.3-develop.1) (2022-02-28)
 
 
