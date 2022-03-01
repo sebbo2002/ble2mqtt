@@ -236,7 +236,7 @@ export default class BluetoothLE2MQTT {
                 debug,
                 serviceData: peripheral.advertisement.serviceData || []
             });
-            if (typeof values !== 'object' || Object.keys(values).length === 0) {
+            if (typeof values !== 'object' || values === undefined || values === null || Object.keys(values).length === 0) {
                 return;
             }
 

@@ -74,8 +74,8 @@ export default class SwitchBotModule {
     }
 
     static handleAdvertisementForWoCurtain({debug, data}) {
-        if (data.length !== 5) {
-            debug(`Got an advertisement for WoCurtain, but service data length is incorrect (${data.length} is not 5).`);
+        if (data.length < 5) {
+            debug(`Got an advertisement for WoCurtain, but service data length is incorrect (${data.length} is < 5).`);
             return null;
         }
 
