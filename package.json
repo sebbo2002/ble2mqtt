@@ -20,7 +20,7 @@
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/release-notes-generator": "^10.0.3",
-    "@sentry/cli": "^1.72.2",
+    "@sentry/cli": "^1.73.2",
     "eslint": "^8.9.0",
     "eslint-plugin-jsonc": "^2.2.1",
     "esm": "^3.2.25",
