@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-03-01T10:10:49.499Z",
-    "end": "2022-03-01T10:10:49.504Z",
-    "duration": 5,
+    "start": "2022-03-31T15:05:24.657Z",
+    "end": "2022-03-31T15:05:24.663Z",
+    "duration": 6,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "6edc1b52-d7a6-4daf-8cb9-cfc63dbb35f0",
+      "uuid": "76148e04-607f-440f-b75e-fa29d8b1cf1b",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "adedd845-0d38-4df2-99b4-7b15b34c9c1b",
+          "uuid": "396c7d40-3582-412e-9eea-1e5e680518d2",
           "title": "Watchdog",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -47,15 +47,15 @@
               "context": null,
               "code": "assert.ok(SmartWatchdog);",
               "err": {},
-              "uuid": "93cd369e-fad9-4da5-bb27-52487d3be955",
-              "parentUUID": "adedd845-0d38-4df2-99b4-7b15b34c9c1b",
+              "uuid": "4e8558bd-52ce-4ed5-8834-2081434c2c94",
+              "parentUUID": "396c7d40-3582-412e-9eea-1e5e680518d2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "93cd369e-fad9-4da5-bb27-52487d3be955"
+            "4e8558bd-52ce-4ed5-8834-2081434c2c94"
           ],
           "failures": [],
           "pending": [],
@@ -66,7 +66,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "a0de55f7-6a0a-43f9-98a9-f8ed7a91eed1",
+          "uuid": "41366f2e-e756-4667-8736-92d62c8ab8f2",
           "title": "Modules",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -77,7 +77,7 @@
               "title": "should be there",
               "fullTitle": "Modules should be there",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -86,20 +86,20 @@
               "context": null,
               "code": "assert.ok(modules.length > 0);",
               "err": {},
-              "uuid": "d6242e6f-755e-4722-8dfe-75c90e7f19fc",
-              "parentUUID": "a0de55f7-6a0a-43f9-98a9-f8ed7a91eed1",
+              "uuid": "7fc74086-4900-4738-9efe-a5adbe891004",
+              "parentUUID": "41366f2e-e756-4667-8736-92d62c8ab8f2",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d6242e6f-755e-4722-8dfe-75c90e7f19fc"
+            "7fc74086-4900-4738-9efe-a5adbe891004"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 0,
+          "duration": 1,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -117,7 +117,7 @@
   ],
   "meta": {
     "mocha": {
-      "version": "9.2.1"
+      "version": "9.2.2"
     },
     "mochawesome": {
       "options": {
@@ -129,11 +129,11 @@
         "useInlineDiffs": false,
         "code": true
       },
-      "version": "7.0.1"
+      "version": "7.1.1"
     },
     "marge": {
       "options": null,
-      "version": "6.0.1"
+      "version": "6.1.1"
     }
   }
 }
