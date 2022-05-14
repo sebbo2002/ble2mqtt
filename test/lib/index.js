@@ -1,8 +1,17 @@
-import Magic from '../../src/lib/index.js';
+'use strict';
+
+import SmartWatchdog from '../../src/lib/watchdog.js';
+import modules from '../../src/modules/index.js';
 import assert from 'assert';
 
-describe('Example', function () {
-    it('should work with integers', function () {
-        assert.strictEqual(Magic.double(2), 4);
+describe('Watchdog', function () {
+    it('should load without any errors', function () {
+        assert.ok(SmartWatchdog);
+    });
+});
+
+describe('Modules', function () {
+    it('should be there', function () {
+        assert.ok(modules.length > 0);
     });
 });

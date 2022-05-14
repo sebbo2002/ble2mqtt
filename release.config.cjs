@@ -21,6 +21,11 @@ configuration.plugins.push(['@semantic-release/commit-analyzer', {
 
 configuration.plugins.push('@semantic-release/release-notes-generator');
 
+configuration.plugins.push(['@semantic-release/exec', {
+    'prepareCmd': 'VERSION=${nextRelease.version} ./.github/workflows/build.sh',
+    'success': 'VERSION=${nextRelease.version} ./.github/workflows/release-success.sh'
+}]);
+
 configuration.plugins.push('@semantic-release/changelog');
 
 configuration.plugins.push('semantic-release-license');

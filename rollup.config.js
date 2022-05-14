@@ -1,34 +1,28 @@
 import shebang from 'rollup-plugin-preserve-shebang';
 
-const plugins = [
-    shebang()
+const external = [
+    'mqtt',
+    '@abandonware/noble',
+    '@sentry/node'
 ];
 
 export default [
     {
-        input: 'src/bin/cli.js',
+        input: 'src/bin/ble2mqtt.js',
         output: {
-            file: 'dist/bin/cli.cjs',
+            file: 'dist/bin/ble2mqtt.cjs',
             format: 'cjs'
         },
-        plugins
+        plugins: [shebang()],
+        external
     },
     {
-        input: 'src/bin/start.js',
+        input: 'src/lib/ble2mqtt.js',
         output: {
-            file: 'dist/bin/start.cjs',
-            format: 'cjs'
-        },
-        external: [ 'express' ],
-        plugins
-    },
-    {
-        input: 'src/lib/index.js',
-        output: {
-            file: 'dist/lib/index.cjs',
+            file: 'dist/lib/ble2mqtt.cjs',
             format: 'cjs',
             exports: 'auto'
         },
-        plugins
+        external
     }
 ];

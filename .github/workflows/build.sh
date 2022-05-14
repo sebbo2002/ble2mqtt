@@ -3,6 +3,7 @@ set -e
 
 echo "########################"
 echo "# build.sh"
+echo "# Version = ${VERSION}"
 echo "# Branch = ${BRANCH}"
 echo "# node version = $(node -v)"
 echo "# npm version = $(npm -v)"
@@ -25,3 +26,9 @@ rm -rf ./docs/tests/
 npx mocha --reporter mochawesome
 mv -f ./mochawesome-report/mochawesome.html ./mochawesome-report/index.html
 mv -f ./mochawesome-report ./docs/tests
+
+# Sentry Release
+if [ "$VERSION" != "" ]; then
+    npx sentry-cli releases new -p ble2mqtt $VERSION
+    npx sentry-cli releases set-commits $VERSION --auto
+fi;

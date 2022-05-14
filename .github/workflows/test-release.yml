@@ -22,6 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'npm'
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: ⏳ Run tests
@@ -38,6 +40,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: 'npm'
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: 🕵️‍♀️ Run license checker
@@ -54,6 +58,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: 'npm'
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: 🔍 Run linter
@@ -96,7 +102,7 @@ jobs:
           github-token: ${{ secrets.GH_TOKEN }}
           target: build-container
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64
           pull: true
           push: true
           tags: ghcr.io/${{ github.repository }}:build-container-${{ github.sha }}
@@ -200,7 +206,7 @@ jobs:
           context: .
           github-token: ${{ secrets.GH_TOKEN }}
           builder: ${{ steps.buildx.outputs.name }}
-          platforms: linux/amd64,linux/arm64,linux/ppc64le,linux/s390x,linux/arm/v7,linux/arm/v6
+          platforms: linux/amd64
           pull: true
           push: true
           tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
@@ -241,17 +247,6 @@ jobs:
         env:
           SOURCE: ghcr.io/${{ github.repository }}:${{ github.sha }}
           TARGET: ${{ github.repository }}:${{ github.sha }}
-      - name: 🏁 Boot-up Check
-        if: github.repository != 'sebbo2002/js-template'
-        run: |
-          docker run --name "app" -d $IMAGE
-          sleep 5
-          docker logs app
-          docker exec app echo "Ok."
-          docker stop app
-          docker rm app
-        env:
-          IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
     outputs:
       digest: ${{ steps.docker-build-2.outputs.digest }}
 
@@ -274,6 +269,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache: 'npm'
+
+          node-version: ${{ matrix.node }}
+      - name: 📦 Install up to date npm
+        run: sudo npm i -g npm
       - name: 📦 Install dependencies
         run: npm ci
       - name: 📂 Create docs folder
@@ -318,6 +317,10 @@ jobs:
           PUBLIC_NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           DOCKER_LOCAL_IMAGE_GH: ${{ steps.github.outputs.image }}
           DOCKER_LOCAL_IMAGE_DH: ${{ steps.dockerhub.outputs.image }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: sebbo
+          SENTRY_PROJECT: ble2mqtt
+          SENTRY_URL: https://sentry.sebbo.net
       - name: 🔃 Merge main back into develop
         if: ${{ github.ref == 'refs/heads/main' }}
         uses: everlytic/branch-merge@1.1.2
