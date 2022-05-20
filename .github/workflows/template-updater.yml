@@ -1,4 +1,4 @@
-name: TemplateUpdater
+name: Template Updater
 on:
   workflow_dispatch:
   schedule:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.repository != 'sebbo2002/js-template' }}
     steps:
-      - name: 🤖 is-semantic-release
+      - name: 🤖 template-updater
         uses: sebbo2002/action-template-updater@develop
         with:
           token: ${{ secrets.GH_TOKEN }}
