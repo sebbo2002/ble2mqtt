@@ -1,3 +1,11 @@
+## [2.0.7](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.6...v2.0.7) (2022-06-01)
+
+
+### Reverts
+
+* Revert "ci: Remove docker setup" ([14a5226](https://github.com/sebbo2002/ble2mqtt/commit/14a5226c828f173fe23b1d0033f825c73e848038))
+* Revert "ci: Remove docker setup" ([655068b](https://github.com/sebbo2002/ble2mqtt/commit/655068b3b9c6139181ae87421db5f8144fae3e18))
+
 ## [2.0.7-develop.2](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.7-develop.1...v2.0.7-develop.2) (2022-05-20)
 
 
