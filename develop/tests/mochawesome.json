@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-06-07T04:58:22.381Z",
-    "end": "2022-06-07T04:58:22.390Z",
-    "duration": 9,
+    "start": "2022-06-08T20:31:31.439Z",
+    "end": "2022-06-08T20:31:31.444Z",
+    "duration": 5,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "46c0a274-7de6-4b7c-a522-6a4141a6054f",
+      "uuid": "b87aae32-aa66-4bcc-9877-cc5dd071786e",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "4428d7a2-64f7-43bd-8245-5212ce674a6f",
+          "uuid": "5ab61589-846a-44a8-aa8d-9081761f6bdb",
           "title": "Watchdog",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -47,15 +47,15 @@
               "context": null,
               "code": "assert.ok(SmartWatchdog);",
               "err": {},
-              "uuid": "45f122be-1553-43d3-99fc-b523b7b4a19b",
-              "parentUUID": "4428d7a2-64f7-43bd-8245-5212ce674a6f",
+              "uuid": "84959257-a756-48f3-b170-b93c0b27dd5a",
+              "parentUUID": "5ab61589-846a-44a8-aa8d-9081761f6bdb",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "45f122be-1553-43d3-99fc-b523b7b4a19b"
+            "84959257-a756-48f3-b170-b93c0b27dd5a"
           ],
           "failures": [],
           "pending": [],
@@ -66,7 +66,7 @@
           "_timeout": 2000
         },
         {
-          "uuid": "741539f7-ed1d-4bde-a34f-3638dee75616",
+          "uuid": "673a8936-318d-4219-94d3-ec7c858cd4ad",
           "title": "Modules",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -86,15 +86,15 @@
               "context": null,
               "code": "assert.ok(modules.length > 0);",
               "err": {},
-              "uuid": "cead7dd3-c2d0-40f0-9cb9-e29ce55c7769",
-              "parentUUID": "741539f7-ed1d-4bde-a34f-3638dee75616",
+              "uuid": "22368e2a-066e-4aa3-9bfe-840102a8e251",
+              "parentUUID": "673a8936-318d-4219-94d3-ec7c858cd4ad",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "cead7dd3-c2d0-40f0-9cb9-e29ce55c7769"
+            "22368e2a-066e-4aa3-9bfe-840102a8e251"
           ],
           "failures": [],
           "pending": [],
