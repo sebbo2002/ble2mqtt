@@ -1,3 +1,11 @@
+## [2.0.8-develop.4](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.8-develop.3...v2.0.8-develop.4) (2022-06-13)
+
+## [2.0.8-develop.3](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.8-develop.2...v2.0.8-develop.3) (2022-06-10)
+
+## [2.0.8-develop.2](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.8-develop.1...v2.0.8-develop.2) (2022-06-08)
+
+## [2.0.8-develop.1](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.7...v2.0.8-develop.1) (2022-06-07)
+
 ## [2.0.7](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.6...v2.0.7) (2022-06-01)
 
 
