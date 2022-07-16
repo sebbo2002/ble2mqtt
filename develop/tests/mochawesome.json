@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2022-07-16T16:56:20.654Z",
-    "end": "2022-07-16T16:56:20.659Z",
-    "duration": 5,
+    "start": "2022-07-16T17:39:57.978Z",
+    "end": "2022-07-16T17:39:57.984Z",
+    "duration": 6,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "19c503c7-ac84-43e0-b50f-4fa345e2a576",
+      "uuid": "3d3c8ec4-d55c-43c8-ba15-aac081f22b9b",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "557a90ab-f671-4932-b5bf-f5332be52205",
+          "uuid": "c539900d-4dca-4936-b85d-aca899378eef",
           "title": "Watchdog",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -38,7 +38,7 @@
               "title": "should load without any errors",
               "fullTitle": "Watchdog should load without any errors",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,26 +47,26 @@
               "context": null,
               "code": "assert.ok(SmartWatchdog);",
               "err": {},
-              "uuid": "8519d13f-f290-40a9-be66-bd87fe47b7cf",
-              "parentUUID": "557a90ab-f671-4932-b5bf-f5332be52205",
+              "uuid": "a8cf1c46-087d-4f9c-a9c6-f7a222447d45",
+              "parentUUID": "c539900d-4dca-4936-b85d-aca899378eef",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "8519d13f-f290-40a9-be66-bd87fe47b7cf"
+            "a8cf1c46-087d-4f9c-a9c6-f7a222447d45"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 0,
+          "duration": 1,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "5b9303e0-37be-4d87-9f1e-a42b7bdf6251",
+          "uuid": "637242ee-1474-4ccf-bc5a-02144594de35",
           "title": "Modules",
           "fullFile": "/home/runner/work/ble2mqtt/ble2mqtt/test/lib/index.js",
           "file": "/test/lib/index.js",
@@ -77,7 +77,7 @@
               "title": "should be there",
               "fullTitle": "Modules should be there",
               "timedOut": false,
-              "duration": 0,
+              "duration": 1,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -86,20 +86,20 @@
               "context": null,
               "code": "assert.ok(modules.length > 0);",
               "err": {},
-              "uuid": "022406a0-e51e-4594-9ad8-f7efd8a08444",
-              "parentUUID": "5b9303e0-37be-4d87-9f1e-a42b7bdf6251",
+              "uuid": "bb8e6651-dff0-4887-b77e-70471c277755",
+              "parentUUID": "637242ee-1474-4ccf-bc5a-02144594de35",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "022406a0-e51e-4594-9ad8-f7efd8a08444"
+            "bb8e6651-dff0-4887-b77e-70471c277755"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 0,
+          "duration": 1,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
