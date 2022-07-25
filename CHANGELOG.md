@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.8...v3.0.0) (2022-07-25)
+
+
+### Build System
+
+* Native ESM support ([7b86a4f](https://github.com/sebbo2002/ble2mqtt/commit/7b86a4f1187c387a3a5792e1fb72d822b04e3631))
+
+
+### BREAKING CHANGES
+
+* Only Support for node.js ^12.20.0 || >=14.13.1
+
 # [3.0.0-develop.4](https://github.com/sebbo2002/ble2mqtt/compare/v3.0.0-develop.3...v3.0.0-develop.4) (2022-07-25)
 
 # [3.0.0-develop.3](https://github.com/sebbo2002/ble2mqtt/compare/v3.0.0-develop.2...v3.0.0-develop.3) (2022-07-22)
