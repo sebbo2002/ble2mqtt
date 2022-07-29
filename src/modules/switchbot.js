@@ -87,6 +87,7 @@ export default class SwitchBotModule {
         return {
             calibrated: !!(byte1 & 0b01000000),
             battery: byte2 & 0b01111111, // %
+            moving: !!(byte3 & 0b10000000),
             position: byte3 & 0b01111111, // %
             lightLevel: (byte4 >> 4) & 0b00001111 // light sensor level (1-10)
         };
