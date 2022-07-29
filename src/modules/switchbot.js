@@ -1,17 +1,17 @@
 'use strict';
 
-const SwitchBotServiceUUID = '0d00';
+const SwitchBotServiceUUIDs = ['0d00', 'fd3d'];
 
 export default class SwitchBotModule {
     static getModuleDescription () {
         return {
             name: 'switchbot',
-            serviceUUIDs: [SwitchBotServiceUUID]
+            serviceUUIDs: SwitchBotServiceUUIDs
         };
     }
 
     static handleAdvertisement ({debug, serviceData}) {
-        const dataObj = serviceData.find(({uuid}) => uuid === SwitchBotServiceUUID);
+        const dataObj = serviceData.find(({uuid}) => SwitchBotServiceUUIDs.includes(uuid));
         if (!dataObj) {
             debug('Got an advertisement, but there\'s no service data attached. Ignore it.');
             return;
