@@ -1,3 +1,5 @@
+# [3.1.0-develop.2](https://github.com/sebbo2002/ble2mqtt/compare/v3.1.0-develop.1...v3.1.0-develop.2) (2022-08-16)
+
 # [3.1.0-develop.1](https://github.com/sebbo2002/ble2mqtt/compare/v3.0.0...v3.1.0-develop.1) (2022-07-29)
 
 
