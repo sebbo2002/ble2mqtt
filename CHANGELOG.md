@@ -1,3 +1,19 @@
+# [3.1.0-develop.3](https://github.com/sebbo2002/ble2mqtt/compare/v3.1.0-develop.2...v3.1.0-develop.3) (2022-08-24)
+
+# [3.1.0-develop.2](https://github.com/sebbo2002/ble2mqtt/compare/v3.1.0-develop.1...v3.1.0-develop.2) (2022-08-16)
+
+# [3.1.0-develop.1](https://github.com/sebbo2002/ble2mqtt/compare/v3.0.0...v3.1.0-develop.1) (2022-07-29)
+
+
+### Bug Fixes
+
+* **Switchbot:** Add new service UUID ([ad6c0bf](https://github.com/sebbo2002/ble2mqtt/commit/ad6c0bfc773a566feff1b62ef83ea022628a64bd))
+
+
+### Features
+
+* **Switchbot:** Add `moving` flag ([3bd5f20](https://github.com/sebbo2002/ble2mqtt/commit/3bd5f2008592cd1a15cb79ecef3b6253ae2c4973))
+
 # [3.0.0](https://github.com/sebbo2002/ble2mqtt/compare/v2.0.8...v3.0.0) (2022-07-25)
 
 
