@@ -215,6 +215,7 @@ export default class BluetoothLE2MQTT {
         this.debug(`Pass advertisement to these module${responsibleModules.length > 1 ? 's' : ''}: ${names.join(', ')}`, 'core', peripheral.address);
 
         responsibleModules.forEach(module => this.handleAdvertisementWithModule(peripheral, module));
+        peripheral.advertisement.serviceData.splice(0, peripheral.advertisement.serviceData.length);
     }
 
     /**
